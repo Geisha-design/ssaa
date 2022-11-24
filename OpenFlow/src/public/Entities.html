@@ -17,15 +17,14 @@
     <em class="fas fa-cog fa-spin" ng-show="ctrl.loading==true" title="Hang on, loading data"></em>
     <input type="checkbox" id="checkbox-1" ng-model="ctrl.skipcustomerfilter" ng-change="ctrl.Search()"
       ng-show="menuctrl.WebSocketClientService.multi_tenant">
-    <label for="checkbox-1" ng-show="menuctrl.WebSocketClientService.multi_tenant"><span translate lib="web">show
-        all</span></label>
+    <label for="checkbox-1" ng-show="menuctrl.WebSocketClientService.multi_tenant"><span translate lib="web">展示全部</span></label>
     <span ng-show="ctrl.collection == 'openrpa_instances'">
       <input type="checkbox" id="checkbox-2" ng-model="ctrl.showrunning" ng-change="ctrl.loadData()">
-      <label for="checkbox-2"><span translate lib="web">running</span></label>
+      <label for="checkbox-2"><span translate lib="web">执行中</span></label>
     </span>
     <span ng-show="ctrl.collection == 'config'">
       <input type="checkbox" id="checkbox-3" ng-model="ctrl.showpending" ng-change="ctrl.loadData()">
-      <label for="checkbox-3"><span translate lib="web">pending</span></label>
+      <label for="checkbox-3"><span translate lib="web">搁置中</span></label>
     </span>
 
     <a ng-href="#/Deleted/{{ctrl.collection}}" class="btn btn-info" ng-show="ctrl.loading == false"
@@ -49,11 +48,11 @@
 style="width: 100%;" aria-label="List items in seletected collection">
   <thead class="thead-dark">
     <tr>
-      <th scope="col" ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">name</strong></th>
-      <th class="w-150" scope="col" ng-click="ctrl.ToggleOrder('_type')"><strong translate lib="web">type</strong></th>
-      <th class="w-150" ng-click="ctrl.ToggleOrder('_createdby')"><strong translate lib="web">createdby</strong></th>
-      <th class="w-100" scope="col" ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">created</strong></th>
-      <th class="w-100" scope="col" ng-click="ctrl.ToggleOrder('_modified')"><strong translate lib="web">updated</strong></th>
+      <th scope="col" ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">名称</strong></th>
+      <th class="w-150" scope="col" ng-click="ctrl.ToggleOrder('_type')"><strong translate lib="web">类型</strong></th>
+      <th class="w-150" ng-click="ctrl.ToggleOrder('_createdby')"><strong translate lib="web">创建者</strong></th>
+      <th class="w-100" scope="col" ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">创建</strong></th>
+      <th class="w-100" scope="col" ng-click="ctrl.ToggleOrder('_modified')"><strong translate lib="web">更新</strong></th>
       <th class="w-200"></th>
     </tr>
   </thead>

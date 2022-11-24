@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-20">
-        <h1 class="pagetitle" translate lib="web">userdetails</h1>
+        <h1 class="pagetitle" translate lib="web">用户细节</h1>
     </div>
 </div>
 
@@ -9,99 +9,99 @@
 <form ng-submit="ctrl.submit()" class="form-horizontal" role="form" autocomplete="off">
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">name</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">名称</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.name" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group">
-        <label for="username" class="col-sm-2 control-label" translate lib="web">username</label>
+        <label for="username" class="col-sm-2 control-label" translate lib="web">用户名</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.username" class="form-control input-md" ng-disabled="ctrl.loading==true"
                 autocomplete="new-password" />
         </div>
     </div>
     <div class="form-group">
-        <label for="newpassword" class="col-sm-2 control-label" translate lib="web">password</label>
+        <label for="newpassword" class="col-sm-2 control-label" translate lib="web">密码</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.newpassword" class="form-control input-md" style="-webkit-text-security: disc;"
                 ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="menuctrl.hasrole('admins') && ctrl.model.email">
-        <label for="email" class="col-sm-2 control-label" translate lib="web">email</label>
+        <label for="email" class="col-sm-2 control-label" translate lib="web">邮箱</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.email" class="form-control input-md"
                 ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="menuctrl.hasrole('admins') && ctrl.model.company != '' && ctrl.model.company != null && ctrl.model.company != undefined">
-        <label for="company" class="col-sm-2 control-label" translate lib="web">company</label>
+        <label for="company" class="col-sm-2 control-label" translate lib="web">公司</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.company" class="form-control input-md"
                 ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="menuctrl.hasrole('admins') && ctrl.model.remoteip != '' && ctrl.model.remoteip != null && ctrl.model.remoteip != undefined">
-        <label for="remoteip" class="col-sm-2 control-label" translate lib="web">remoteip</label>
+        <label for="remoteip" class="col-sm-2 control-label" translate lib="web">远程IP地址</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.remoteip" class="form-control input-md"
                 ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="menuctrl.hasrole('admins') && (ctrl.model.dblocked == true || ctrl.model.dblocked == false)">
-        <label for="dblocked" class="col-sm-2 control-label" translate lib="web">dblocked</label>
+        <label for="dblocked" class="col-sm-2 control-label" translate lib="web">数据库锁</label>
         <div class="col-sm-4">
             <input type="checkbox" ng-model="ctrl.model.dblocked" class="input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="menuctrl.hasrole('admins') && (ctrl.model.validated == true || ctrl.model.validated == false)">
-        <label for="validated" class="col-sm-2 control-label" translate lib="web">validated</label>
+        <label for="validated" class="col-sm-2 control-label" translate lib="web">有效性</label>
         <div class="col-sm-4">
             <input type="checkbox" ng-model="ctrl.model.validated" class="input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="menuctrl.hasrole('admins') && (ctrl.model.validated == true || ctrl.model.validated == false)">
-        <label for="emailvalidated" class="col-sm-2 control-label" translate lib="web">emailvalidated</label>
+        <label for="emailvalidated" class="col-sm-2 control-label" translate lib="web">邮件有效性</label>
         <div class="col-sm-4">
             <input type="checkbox" ng-model="ctrl.model.emailvalidated" class="input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="menuctrl.hasrole('admins') && (ctrl.model.validated == true || ctrl.model.validated == false)">
-        <label for="formvalidated" class="col-sm-2 control-label" translate lib="web">formvalidated</label>
+        <label for="formvalidated" class="col-sm-2 control-label" translate lib="web">表单有效性</label>
         <div class="col-sm-4">
             <input type="checkbox" ng-model="ctrl.model.formvalidated" class="input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">disabled</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">禁用</label>
         <div class="col-sm-6">
             <input type="checkbox" ng-model="ctrl.model.disabled" class="input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group" ng-show="ctrl.model.sid != '' && ctrl.model.sid != null && ctrl.model.sid != undefined">
-        <label for="sid" class="col-sm-2 control-label" translate lib="web">SID</label>
+        <label for="sid" class="col-sm-2 control-label" translate lib="web">安全标识符</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.sid" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group"
         ng-show="ctrl.model.firebasetoken != '' && ctrl.model.firebasetoken != null && ctrl.model.firebasetoken != undefined">
-        <label for="sid" class="col-sm-2 control-label" translate lib="web">Firebase Token</label>
+        <label for="sid" class="col-sm-2 control-label" translate lib="web">防火墙密钥</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.firebasetoken" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group"
         ng-show="ctrl.model.onesignalid != '' && ctrl.model.onesignalid != null && ctrl.model.onesignalid != undefined">
-        <label for="sid" class="col-sm-2 control-label" translate lib="web">OneSignal Id</label>
+        <label for="sid" class="col-sm-2 control-label" translate lib="web">推送服务Id</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.onesignalid" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-2 control-label" translate lib="web">providerids</label>
+        <label class="col-sm-2 control-label" translate lib="web">提供者</label>
         <div class="col-sm-4">
         </div>
     </div>
@@ -110,20 +110,19 @@
         <div class="col-sm-4">
             {{ id }}
             <button type="button" ng-disabled="ctrl.loading==true" class="btn btn-danger" ng-click="ctrl.deleteid(id)"
-                translate lib="web">delete</button>
+                translate lib="web">删除</button>
         </div>
     </div>
 
     <div class="form-inline">
         <div class="form-group mb-2">
-            <label class="sr-only" translate lib="web">AddFederationId</label>
+            <label class="sr-only" translate lib="web">添加联合账号</label>
         </div>
         <div class="form-group mx-sm-3 mb-2">
             <input ng-model="ctrl.newid" type="text" class="form-control" placeholder="New identity typically email"
                 autocomplete="new-password">
         </div>
-        <button type="button" class="btn btn-success mb-2" ng-disabled="ctrl.loading==true" ng-click="ctrl.addid()">add
-            identity</button>
+        <button type="button" class="btn btn-success mb-2" ng-disabled="ctrl.loading==true" ng-click="ctrl.addid()">添加身份</button>
     </div>
 
 
@@ -132,20 +131,20 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" ng-disabled="ctrl.loading==true" class="btn btn-success" translate
-                lib="web">save</button>
+                lib="web">保存</button>
         </div>
     </div>
 
 
 
     <div class="form-inline" ng-repeat="m in ctrl.memberof">
-        <label class="col-sm-1 control-label" translate lib="web">memberof</label>
+        <label class="col-sm-1 control-label" translate lib="web">成员联合模块</label>
         <div class="col-sm-3">
             {{ m.name }}
         </div>
         <div class="col-sm-2">
             <button ng-click=" ctrl.RemoveMember(m)" type="button" ng-disabled="ctrl.loading==true"
-                class="btn btn-success" translate lib="web">remove</button>
+                class="btn btn-success" translate lib="web">移除</button>
         </div>
         <div class="col-sm-3">
             {{ m._id }}
@@ -156,15 +155,15 @@
 <br>
 <hr class="row" ng-show="ctrl.model._id == menuctrl.user._id">
 <div class="row" ng-show="ctrl.model._id == menuctrl.user._id">
-    <div class="col">admins</div>
+    <div class="col">主账户</div>
     <div class="col">{{menuctrl.hasrole('admins')}}</div>
 </div>
 <div class="row" ng-show="ctrl.model._id == menuctrl.user._id">
-    <div class="col">resellers</div>
+    <div class="col">代理商账户</div>
     <div class="col">{{menuctrl.hasrole('resellers')}}</div>
 </div>
 <div class="row" ng-show="ctrl.model._id == menuctrl.user._id">
-    <div class="col">customer admins</div>
+    <div class="col">消费者账户</div>
     <div class="col">{{menuctrl.hasrole('customer admins')}}</div>
 </div>
 <hr class="row" ng-show="ctrl.model._id == menuctrl.user._id">

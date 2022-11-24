@@ -1,20 +1,19 @@
 <div class="row">
-  <h1 translate lib="web">roles</h1>
+  <h1 translate lib="web">角色</h1>
 </div>
 <div class="col-sm-12 text-right">
   <em class="fas fa-cog fa-spin" ng-show="ctrl.loading==true"></em>
   <input type="checkbox" id="checkbox-1" ng-model="ctrl.skipcustomerfilter" ng-change="ctrl.Search()"
     ng-show="menuctrl.WebSocketClientService.multi_tenant">
-  <label for="checkbox-1" ng-show="menuctrl.WebSocketClientService.multi_tenant"><span translate lib="web">show
-      all</span></label>
-  <a href="#/Role" class="btn" translate lib="web">addrole</a>
+  <label for="checkbox-1" ng-show="menuctrl.WebSocketClientService.multi_tenant"><span translate lib="web">展示全部</span></label>
+  <a href="#/Role" class="btn" translate lib="web">添加角色</a>
 </div>
 <div ng-show="ctrl.errormessage != ''"" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
 <table id="table1" class="table table-striped" when-scrolled="ctrl.more()" style="width: 100%;">
   <thead class="thead-dark">
     <tr>
-      <th ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">name</strong></th>
-      <th class="w-150" ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">created</strong></th>
+      <th ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">名称</strong></th>
+      <th class="w-150" ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">创建时间</strong></th>
       <th class="w-150"></th>
     </tr>
   </thead>

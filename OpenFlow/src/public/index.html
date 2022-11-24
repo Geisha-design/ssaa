@@ -9,7 +9,7 @@
     content="OpenFlow, the leading Open Source Enterprise integratd automation platform, read more at https://github.com/open-rpa/openflow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="viewport" content="width=device-width" />
-  <title>OpenFlow</title>
+  <title>易豹数字化机器人控制台1.0</title>
 </head>
 
 <body ng-controller="MenuCtrl as menuctrl" class="with-custom-webkit-scrollbars with-custom-css-scrollbars "
@@ -18,28 +18,28 @@
     <div class="sidebar" ng-show="menuctrl.signedin">
       <div class="sidebar-menu">
         <div class="sidebar-content">
-          <input type="text" class="form-control" placeholder="Search" ng-model="menuctrl.searchstring"
+          <input type="text" class="form-control" placeholder="搜索" ng-model="menuctrl.searchstring"
             ng-model-options="{ debounce: 500 }" ng-change="menuctrl.Search()" id="menusearch">
         </div>
       </div>
       <a href="#/Nodered" class="sidebar-link" id="menunodered" ng-class="{active: menuctrl.PathIs(['/Nodered'])}"
         ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')">
-        <span translate lib="web">nodered</span></a>
+        <span translate lib="web">节点名称</span></a>
 
       <a href="#/Workitems" class="sidebar-link" id="menuworkitems"
         ng-class="{active: menuctrl.PathIs(['/Workitems', '/Workitem', '/Workitem/'])}"
         ng-show="(menuctrl.hasrole('admins') || menuctrl.hasrole('workitem queue users'))"><span translate
-          lib="web">workitems</span></a>
+          lib="web">工作项目</span></a>
 
       <a href="#/Workflows" class="sidebar-link" id="menuworkflows"
       ng-show="menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide form workflows')"
         ng-class="{active: menuctrl.PathIs(['/Workflows', '/Form/'])}"><span translate
-          lib="web">menuworkflows</span></a>
+          lib="web">菜单工作流</span></a>
 
       <a href="#/RPAWorkflows" class="sidebar-link" id="menurpaworkflows"
         ng-class="{active: menuctrl.PathIs(['/RPAWorkflows', '/RPAWorkflow/'])}"
         ng-show="(menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide rpaworkflows')) || menuctrl.hasrole('admins')"><span
-          translate lib="web">rpaworkflows</span></a>
+          translate lib="web">rpa工作流</span></a>
 
       <a href="//{{menuctrl.WebSocketClientService.nodered_domain_schema.replace('$nodered_id$', 'grafana')}}"
         class="sidebar-link" id="menugrafana" target="_blank"
@@ -47,7 +47,7 @@
           translate lib="web">grafana</span></a>
 
       <div ng-show="(menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide admins')) || menuctrl.hasrole('admins')">
-        <h5 class="sidebar-title">User management</h5>
+        <h5 class="sidebar-title">用户管理</h5>
         <div class="sidebar-divider"></div>
         <a class="sidebar-link" ng-class="{active: menuctrl.PathIs(['/User/{{menuctrl.user._id}}'])}"
           ng-href="#/User/{{menuctrl.user._id}}"> {{menuctrl.user.name || menuctrl.user.username
@@ -56,72 +56,72 @@
         <a class="sidebar-link" href="#/Users" id="menuadminusers"
           ng-class="{active: menuctrl.PathIs(['/Users', '/User','/User/'])}"
           ng-show="!menuctrl.WebSocketClientService.multi_tenant || (menuctrl.hasrole('admins') || menuctrl.hasrole('customer admins'))"><span
-            translate lib="web">users</span></a>
+            translate lib="web">用户</span></a>
         <a class="sidebar-link" href="#/Roles" id="menuadminroles"
           ng-class="{active: menuctrl.PathIs(['/Roles', '/Role','/Role/'])}"
           ng-show="!menuctrl.WebSocketClientService.multi_tenant || (menuctrl.hasrole('admins') || menuctrl.hasrole('customer admins'))"><span
-            translate lib="web">roles</span></a>
+            translate lib="web">角色</span></a>
         <a class="sidebar-link" href="#/Auditlogs" id="menuadminauditlogs"
-          ng-class="{active: menuctrl.PathIs('/Auditlogs')}"><span translate lib="web">auditlogs</span></a>
+          ng-class="{active: menuctrl.PathIs('/Auditlogs')}"><span translate lib="web">审计日志</span></a>
 
       </div>
       <div ng-show="menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide misc')">
-        <h5 class="sidebar-title">Misc management</h5>
+        <h5 class="sidebar-title">辅助管理</h5>
         <div class="sidebar-divider"></div>
 
         <a href="#/WorkitemQueues" class="sidebar-link" id="menuworkitems"
           ng-class="{active: menuctrl.PathIs(['/WorkitemQueues', '/WorkitemQueue/', '/WorkitemQueue'])}"
           ng-show="(menuctrl.hasrole('admins') || menuctrl.hasrole('workitem queue users'))"><span translate
-            lib="web">workitemqueues</span></a>
+            lib="web">工作项目队列</span></a>
 
 
         <a href="#/Entities" class="sidebar-link" id="menuentities"
           ng-class="{active: menuctrl.PathIs(['/Entities/', '/Entity/'])}"
           ng-show="(menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide entities')) || menuctrl.hasrole('admins')"><span
-            translate lib="web">entities</span></a>
+            translate lib="web">实体对象</span></a>
 
         <a class="sidebar-link" href="#/Clients" id="menuclients"
           ng-class="{active: menuctrl.PathIs(['/Clients', '/Nodered/'])}"
           ng-show="!menuctrl.WebSocketClientService.multi_tenant || (menuctrl.hasrole('admins') || menuctrl.hasrole('customer admins'))"><span
-            translate lib="web">clients</span></a>
+            translate lib="web">租户流</span></a>
 
         <a class="sidebar-link" href="#/Credentials" id="menuadmincredentials"
           ng-class="{active: menuctrl.PathIs(['/Credentials', '/Credential', '/Credential/'])}"><span translate
-            lib="web">credentials</span></a>
+            lib="web">证书</span></a>
         <a class="sidebar-link" href="#/EntityRestrictions"
           ng-class="{active: menuctrl.PathIs(['/EntityRestrictions', '/EntityRestriction', '/EntityRestriction/'])}"
           ng-show="menuctrl.WebSocketClientService.enable_entity_restriction && menuctrl.hasrole('admins')"><span
-            translate lib="web">entityrestrictions</span></a>
+            translate lib="web">实体限制</span></a>
         <a class="sidebar-link" href="#/Forms" id="menuadminforms"
           ng-class="{active: menuctrl.PathIs(['/Forms', '/EditForm', '/EditForm/'])}"><span translate
-            lib="web">forms</span></a>
+            lib="web">表单</span></a>
         <a class="sidebar-link" href="#/FormResources" id="menuadminformresources"
           ng-show="menuctrl.WebSocketClientService.validlicense"
           ng-class="{active: menuctrl.PathIs(['/FormResources', '/FormResource', '/FormResource/'])}"><span translate
             lib="web">formresources</span></a>
         <a class="sidebar-link" href="#/Providers"
           ng-class="{active: menuctrl.PathIs(['/Providers', '/Provider', '/Provider/'])}"
-          ng-show="menuctrl.hasrole('admins')"><span translate lib="web">providers</span></a>
+          ng-show="menuctrl.hasrole('admins')"><span translate lib="web">提供者编号</span></a>
         <a class="sidebar-link" href="#/OAuthClients"
           ng-class="{active: menuctrl.PathIs(['/OAuthClients', '/OAuthClient', '/OAuthClient/'])}"
-          ng-show="menuctrl.hasrole('admins')"><span translate lib="web">oauthclients</span></a>
+          ng-show="menuctrl.hasrole('admins')"><span translate lib="web">授权租户</span></a>
         <a class="sidebar-link" id="menuadminfiles" ng-class="{active: menuctrl.PathIs(['/Files'])}"
-          href="#/Files"><span translate lib="web">files</span></a>
+          href="#/Files"><span translate lib="web">文件</span></a>
         <a class="sidebar-link" ng-class="{active: menuctrl.PathIs(['/hdrobots'])}" href="#/hdrobots"><span translate
-            lib="web">hdrobots</span></a>
+            lib="web">高级机器人</span></a>
 
         <a class="sidebar-link" href="#/Customers"
           ng-class="{active: menuctrl.PathIs(['/Customers', '/Customer', '/Customer/'])}"
           ng-show="menuctrl.WebSocketClientService.multi_tenant && menuctrl.hasrole('resellers')">
-          <span translate lib="web">customers</span></a>
+          <span translate lib="web">消费者</span></a>
         <a class="sidebar-link" href="#/Resources"
           ng-class="{active: menuctrl.PathIs(['/Resources', '/Resource', '/Resource/'])}"
           ng-show="menuctrl.WebSocketClientService.multi_tenant && menuctrl.hasrole('admins')">
-          <span translate lib="web">Resources</span></a>
+          <span translate lib="web">资源</span></a>
         <a class="sidebar-link" href="#/MailHists"
           ng-class="{active: menuctrl.PathIs(['/MailHists', '/MailHist', '/MailHist/'])}"
           ng-show="menuctrl.hasrole('admins') && (menuctrl.WebSocketClientService.validate_emails || menuctrl.WebSocketClientService.forgot_pass_emails)">
-          <span translate lib="web">Mail History</span></a>
+          <span translate lib="web">邮件历史</span></a>
 
       </div>
     </div>
@@ -131,21 +131,22 @@
       <button class="btn" type="button" ng-click="menuctrl.toggleSidebar()"><i class="fas fa-bars"
           aria-hidden="true"></i></button>
       <a href="#" class="navbar-brand">
-        <span translate lib="web">sitename</span>
+        <span translate lib="web">易豹数字化机器人控制台1.0</span>
       </a>
-      <span class="navbar-text text-monospace">v{{menuctrl.WebSocketClientService.version}}</span>
+      <!-- 这一行是版本号的展示，暂时初期隐藏掉 -->
+      <!-- <span class="navbar-text text-monospace">v{{menuctrl.WebSocketClientService.version}}</span> -->
       <ul class="navbar-nav d-none d-md-flex">
       </ul>
       <form class="form-inline d-none d-md-flex ml-auto">
         <div id="menumultitenant" ng-class="{active: menuctrl.PathIs('/Customer')}"
           ng-show="menuctrl.WebSocketClientService.multi_tenant && menuctrl.customer == null && menuctrl.customers.length == 0">
           <a href="#/Customer" class="nav-link">
-            <span translate lib="web">Enable multi tenancy</span></a>
+            <span translate lib="web">启用多租户模式</span></a>
         </div>
 
         <div id="menumanagecustomer" ng-class="{active: menuctrl.PathIs('/Customer')}"
           ng-show="menuctrl.showmanagecustomer()">
-          <a href ng-click="menuctrl.EditCustomer(menuctrl.customer)" class="nav-link">Buy/Manage
+          <a href ng-click="menuctrl.EditCustomer(menuctrl.customer)" class="nav-link">购买/管理
             {{menuctrl.customer.name}}</a>
         </div>
 
@@ -163,7 +164,8 @@
           ng-show="menuctrl.user.impostor != undefined && menuctrl.user.impostor != null && menuctrl.user.impostor != ''">
           <em class="fas fa-user-secret" style="color: red;"></em></button>
 
-        <a href="/Signout" class="btn btn-primary" id="signoutbutton"><span translate lib="web">logout</span></a>
+        <a href="/Signout" class="btn btn-primary" id="signoutbutton"><span translate lib="web">登出</span>
+        </a>
         <div class="dropdown with-arrow" id="menuresellermenu"
           ng-show="menuctrl.WebSocketClientService.multi_tenant && menuctrl.customers != null && menuctrl.customers.length > 1">
           <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
@@ -173,7 +175,7 @@
           <div class="dropdown-menu dropdown-menu-right w-250" aria-labelledby="navbar-dropdown-toggle-btn-1">
             <div class="row">
               <div class="col-sm text-left text-nowrap">
-                <a href ng-click="menuctrl.SelectCustomer(null)" class="dropdown-item">No filter</a>
+                <a href ng-click="menuctrl.SelectCustomer(null)" class="dropdown-item">未启用过滤器</a>
               </div>
             </div>
             <div class="row" ng-repeat="model in menuctrl.customers">
@@ -194,29 +196,29 @@
         <div class="dropdown with-arrow">
           <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
             Menu
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
+            <i class="fas fa-angle-down" aria-hidden="true"></i>          
           </button>
           <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1" id="">
 
             <a href="#/Entities" class="dropdown-item"
             ng-show="(menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide entities')) || menuctrl.hasrole('admins')"            
             ><span translate
-                lib="web">entities</span></a>
+                lib="web">实体对象</span></a>
             <a href="#/Workflows" class="dropdown-item"
             ng-show="menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide form workflows')"
-            ><span translate lib="web">menuworkflows</span></a>
+            ><span translate lib="web">菜单工作流</span></a>
             <a href="#/RPAWorkflows" class="dropdown-item" 
             ng-show="(menuctrl.hasrole('users') && !menuctrl.hasrole('menu hide rpaworkflows')) || menuctrl.hasrole('admins')"><span translate
-                lib="web">rpaworkflows</span></a>
+                lib="web">rpa工作流</span></a>
             <a href="#/Clients" class="dropdown-item" 
             ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')"><span translate
-                lib="web">clients</span></a>
+                lib="web">租户流</span></a>
             <a href="#/Nodered" class="dropdown-item"
               ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')">
-              <span translate lib="web">nodered</span></a>
+              <span translate lib="web">节点</span></a>
             <div class="dropdown-divider"></div>
             <div class="dropdown-content" id="signoutbutton2">
-              <a href="/Signout" class="btn btn-primary"><span translate lib="web">logout</span></a>
+              <a href="/Signout" class="btn btn-primary"><span translate lib="web">登出</span></a>
             </div>
           </div>
         </div>
@@ -225,9 +227,9 @@
     </nav>
     <div class="content-wrapper">
       <div class="alert alert-danger" ng-show="menuctrl.user.dblocked">
-        You are currently using more than the 25mb allowed.
-        Please <a href="#/Customer">buy more</a> storage or install <a href="https://openflow.openiap.io/">openflow</a>
-        locally.
+        您现在已经使用了超过 25mb 的运行空间.
+        请 <a href="#/Customer">购买更多</a> 存储或者下载 <a href="https://openflow.openiap.io/">易豹数字化机器人控制台</a>
+        本地.
       </div>
       <main role="main" class="container"
         ng-show="menuctrl.signedin || menuctrl.path=='/Login' || menuctrl.path=='/Signup'">

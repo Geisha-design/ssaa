@@ -1,15 +1,15 @@
 <div class="starter-template">
-    <h1>OpenRPA</h1>
+    <h1>易豹数字化机器人控制台</h1>
     <p class="lead"></p>
 </div>
 
 <pre>{{ ctrl.message }}</pre>
 <div ng-show="ctrl.errormessage != ''"" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
-<a href ng-click="ctrl.settimeframe(0, 1, '1 hour')">1 hour</a>
-<a href ng-click="ctrl.settimeframe(0, 6, '6 hour')">6 hour</a>
-<a href ng-click="ctrl.settimeframe(1, 0, '1 day')">1 day</a>
-<a href ng-click="ctrl.settimeframe(7, 0, '7 days')">7 days</a>
-<a href ng-click="ctrl.settimeframe(30, 0, '30 days')">30 days</a><br />
+<a href ng-click="ctrl.settimeframe(0, 1, '1 hour')">1小时</a>
+<a href ng-click="ctrl.settimeframe(0, 6, '6 hour')">6小时</a>
+<a href ng-click="ctrl.settimeframe(1, 0, '1 day')">1天</a>
+<a href ng-click="ctrl.settimeframe(7, 0, '7 days')">7天</a>
+<a href ng-click="ctrl.settimeframe(30, 0, '30 days')">30天</a><br />
 
 <div ng-repeat="chart in ctrl.charts">
     <div>{{chart.heading}}</div>

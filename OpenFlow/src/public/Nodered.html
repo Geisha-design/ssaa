@@ -1,36 +1,31 @@
 <div class="starter-template">
-  <h1 translate lib="web">nodered</h1>
+  <h1 translate lib="web">节点名称</h1>
 </div>
 
 <form class="form-horizontal" role="form" autocomplete="off" >
   <section>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="button" class="btn " ng-click="ctrl.GetNoderedInstance()">Reload</button>
+        <button type="button" class="btn " ng-click="ctrl.GetNoderedInstance()">重新加载</button>
         <button type="button" class="btn"
           ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')"
           ng-click="!(ctrl.instance==null || ctrl.instancestatus == 'pending deletion (Running)') || ctrl.EnsureNoderedInstance()"
-          ng-class="{disabled: !(ctrl.instance==null || ctrl.instancestatus == 'pending deletion (Running)')}">Create
-          Nodered </button>
+          ng-class="{disabled: !(ctrl.instance==null || ctrl.instancestatus == 'pending deletion (Running)')}">创建节点</button>
         <button type="button" class="btn"
           ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')"
           ng-click="!(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)') || ctrl.EnsureNoderedInstance()"
-          ng-class="{disabled: !(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)')}">Ensure
-          Nodered </button>
+          ng-class="{disabled: !(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)')}">确认节点</button>
         <button type="button" class="btn btn-secondary"
           ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')"
           ng-click="!(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)' && ctrl.instancestatus != 'Pending') || ctrl.RestartNoderedInstance()"
-          ng-class="{disabled: !(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)' && ctrl.instancestatus != 'Pending')}">Restart
-          Nodered</button>
+          ng-class="{disabled: !(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)' && ctrl.instancestatus != 'Pending')}">重启节点</button>
         <button type="button" class="btn btn-danger"
           ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')"
           ng-click="!(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)') || ctrl.DeleteNoderedInstance()"
-          ng-class="{disabled: !(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)')}">Delete
-          Nodered</button>
+          ng-class="{disabled: !(ctrl.instance!=null && ctrl.instancestatus != 'pending deletion (Running)')}">删除节点</button>
 
         <a ng-href="{{ctrl.noderedurl}}" class="btn btn-success" ng-show="ctrl.instance!=null" target="_blank"
-          rel="noopener">Open
-          Nodered</a>
+          rel="noopener">打开节点</a>
       </div>
     </div>
   </section>
@@ -40,26 +35,26 @@
   <div ng-repeat="instance in ctrl.instances"
     ng-class="{alert: true, 'alert-primary': instance.status.phase != 'Failed', 'alert-danger': instance.status.phase == 'Failed'}">
     <div class="row">
-      <label class="col-sm-1 control-label"><span translate lib="web">name</span>: </label>
+      <label class="col-sm-1 control-label"><span translate lib="web">名称</span>: </label>
       <div class="col">
         <span ng-show="ctrl.instance!=null">{{ instance.metadata.name }}</span>
       </div>
-      <label class="col-sm-1 control-label"><span translate lib="web">cpu</span>: </label>
+      <label class="col-sm-1 control-label"><span translate lib="web">内存使用情况</span>: </label>
       <div class="col-sm-1">
         <span ng-show="ctrl.instance!=null">{{ instance.metrics.cpu + "/" +
           instance.spec.containers[0].resources.limits.cpu }}</span>
       </div>
-      <label class="col-sm-1 control-label"><span translate lib="web">mem</span>: </label>
+      <label class="col-sm-1 control-label"><span translate lib="web">记忆存储</span>: </label>
       <div class="col-sm-1">
         <span ng-show="ctrl.instance!=null">{{ instance.metrics.memory + "/" +
           instance.spec.containers[0].resources.limits.memory }}</span>
       </div>
-      <label class="col-sm-1 control-label"><span translate lib="web">status</span>: </label>
+      <label class="col-sm-1 control-label"><span translate lib="web">状态</span>: </label>
       <div class="col-sm-1">
         <span ng-show="ctrl.instance!=null">{{ (this.instance.metadata.deletionTimestamp != null ? " deleting" :
           instance.status.phase) }}</span>
       </div>
-      <label class="col-sm-1 control-label"><span translate lib="web">created</span>: </label>
+      <label class="col-sm-1 control-label"><span translate lib="web">创建</span>: </label>
       <div class="col-sm-1">
         <span ng-show="ctrl.instance!=null">
           <timesince ng-model="instance.metadata.creationTimestamp" />
@@ -67,7 +62,7 @@
       </div>
     </div>
     <div class="row">
-      <label class="col-sm-1 control-label"><span translate lib="web">image</span>: </label>
+      <label class="col-sm-1 control-label"><span translate lib="web">模型</span>: </label>
       <div class="col">
         <span ng-show="ctrl.instance!=null">{{ instance.Image || instance.spec.containers[0].image }}</span>
       </div>
@@ -75,10 +70,10 @@
          || instance.status.phase == 'running' || instance.status.phase == 'exited'">
         <button type="button" class="btn btn-sm "
           ng-show="instance.status.phase == 'Running' || instance.status.phase == 'running' || instance.status.phase == 'exited'"
-          ng-click="ctrl.GetNoderedInstanceLog(instance.metadata.name)">Logs</button>
+          ng-click="ctrl.GetNoderedInstanceLog(instance.metadata.name)">日志</button>
         <button type="button" class="btn btn-sm btn-danger" ng-click="ctrl.DeleteNoderedPod(instance.metadata.name)"
           ng-show="instance.status.phase == 'Failed' || instance.status.phase == 'Running'
-           || instance.status.phase == 'running' || instance.status.phase == 'exited'">Delete</button>
+           || instance.status.phase == 'running' || instance.status.phase == 'exited'">删除</button>
       </div>
     </div>
     <div class="row" ng-show="instance.status.phase == 'Failed'">
@@ -89,7 +84,7 @@
 <hr>
 <section ng-show="ctrl.instancelog!=''">
   <div class="form-group">
-    <label class="col-sm-3 control-label"><span translate lib="web">console</span>: </label>
+    <label class="col-sm-3 control-label"><span translate lib="web">控制台</span>: </label>
     <div class="col-sm-9">
       <pre>{{ ctrl.instancelog }}</pre>
     </div>
@@ -100,37 +95,37 @@
 </div>
 <section ng-show="menuctrl.WebSocketClientService.allow_personal_nodered == true && menuctrl.hasrole('personal nodered users')">
   <div class="row" ng-show="menuctrl.WebSocketClientService.multi_tenant == false || menuctrl.hasrole('admins')">
-    <label class="col-sm-4 control-label"><span translate lib="web">autocreate</span>: </label>
+    <label class="col-sm-4 control-label"><span translate lib="web">自动创建</span>: </label>
     <div class="col-sm-1">
       <input type="checkbox" ng-model="ctrl.user.nodered.autocreate"></input>
     </div>
   </div>
     <div class="row">
-    <label class="col-sm-4 control-label"><span translate lib="web">api_allow_anonymous</span>: </label>
+    <label class="col-sm-4 control-label"><span translate lib="web">允许匿名API</span>: </label>
     <div class="col-sm-1">
       <input type="checkbox" ng-model="ctrl.user.nodered.api_allow_anonymous"></input>
     </div>
   </div>
   <div class="row">
-    <label class="col-sm-4 control-label"><span translate lib="web">function_external_modules</span>: </label>
+    <label class="col-sm-4 control-label"><span translate lib="web">运行外部模块</span>: </label>
     <div class="col-sm-1">
       <input type="checkbox" ng-model="ctrl.user.nodered.function_external_modules"></input>
     </div>
   </div>
   <div class="row">
-    <label class="col-sm-4 control-label"><span translate lib="web">enable tour</span>: </label>
+    <label class="col-sm-4 control-label"><span translate lib="web">允许环游</span>: </label>
     <div class="col-sm-1">
       <input type="checkbox" ng-model="ctrl.user.nodered.tours"></input>
     </div>
   </div>
   <div class="row">
-    <label class="col-sm-4 control-label"><span translate lib="web">monaco editor</span>: </label>
+    <label class="col-sm-4 control-label"><span translate lib="web">MONACO编辑器</span>: </label>
     <div class="col-sm-1">
       <input type="checkbox" ng-model="ctrl.user.nodered.monaco"></input>
     </div>
   </div>
   <div class="row" ng-show="menuctrl.WebSocketClientService.nodered_images.length > 1">
-    <label class="col-sm-4 control-label"><span translate lib="web">nodered_image</span>: </label>
+    <label class="col-sm-4 control-label"><span translate lib="web">节点模型</span>: </label>
     <div class="col-sm-1">
       <select ng-model="ctrl.user.nodered.nodered_image_name"
         ng-options="item.name as item.name for item in menuctrl.WebSocketClientService.nodered_images">
@@ -139,10 +134,10 @@
   </div>
 
   <div class="row">
-    <label class="col-sm-4 control-label"><span translate lib="web">timezone</span>: </label>
+    <label class="col-sm-4 control-label"><span translate lib="web">时区</span>: </label>
     <div class="col-sm-1">
       <select name="timezone" id="timezone" ng-model="ctrl.user.nodered.tz">
-        <option value="" label="UTC">UTC (default)</option>
+        <option value="" label="UTC">默认UTC</option>
         <optgroup label="Europe">
           <option value="Europe/Amsterdam" label="Amsterdam">Amsterdam</option>
           <option value="Europe/Andorra" label="Andorra">Andorra</option>
@@ -626,10 +621,10 @@
 <section>
   <div class="form-group" ng-show="menuctrl.hasrole('admins')
    && !menuctrl.WebSocketClientService.multi_tenant">
-    <label class="col-sm-3 control-label"><span translate lib="web">memory</span>: </label>
+    <label class="col-sm-3 control-label"><span translate lib="web">记忆存储</span>: </label>
     <div class="col-sm-9">
       <select class="form-control" ng-model="ctrl.limitsmemory">
-        <option value="">Fair usage</option>
+        <option value="">使用存储</option>
         <option value="256Mi">256Mi</option>
         <option value="512Mi">512Mi</option>
         <option value="1Gi">1Gi</option>
@@ -643,7 +638,7 @@
 </section>
 <section>
   <div class="form-group" ng-show="menuctrl.hasrole('admins') && ctrl.labels && ctrl.keys && ctrl.keys.length > 0">
-    <label class="col-sm-3 control-label"><span translate lib="web">label</span>: </label>
+    <label class="col-sm-3 control-label"><span translate lib="web">标签</span>: </label>
     <div class="col-sm-15">
       <!-- <select class="form-control" ng-model="ctrl.label">
         <option value="">No label</option>
@@ -656,9 +651,9 @@
         ng-change="ctrl.newkeyselected()"></select>
       <select ng-model="ctrl.newvalue" ng-options="item as item for item in ctrl.labels[ctrl.newkey]"></select>
       <button type="button" ng-disabled="ctrl.loading==true" class="btn" translate lib="web"
-        ng-click="ctrl.addkey()">add</button>
+        ng-click="ctrl.addkey()">添加</button>
       <button type="button" ng-disabled="ctrl.loading==true" class="btn" translate lib="web"
-        ng-click="ctrl.removekey()">remove</button>
+        ng-click="ctrl.removekey()">移除</button>
     </div>
   </div>
 </section>
@@ -666,7 +661,7 @@
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <button type="button" ng-disabled="ctrl.loading==true" class="btn btn-success" translate lib="web"
-        ng-click="ctrl.save()">save</button>
+        ng-click="ctrl.save()">保存</button>
     </div>
   </div>
 </section>
@@ -675,8 +670,7 @@
 <small ng-show="menuctrl.WebSocketClientService.stripe_api_key == 'pk_test_DNS5WyEjThYBdjaTgwuyGeVV00KqiCvf99' || 
 menuctrl.WebSocketClientService.stripe_api_key == 'pk_live_0XOJdv1fPLPnOnRn40CSdBsh009Ge1B2yI'"><em
     style="color: gray;">
-    Free nodered instances will be shutdown after 8 hours. Create a customer, and add billing information, in order to
-    buy the option to get more RAM for a nodered that will not stop after 8 hours.
+    免费的节点将会在8小时后关闭，请创建一个消费者, 并且添加支付信息,购买将会获得更多使用空间并且不会在8小时后关闭。
   </em></small>
 <br />
 <br />

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-20">
-        <h1 class="pagetitle" translate lib="web">oauthclient</h1>
+        <h1 class="pagetitle" translate lib="web">租户客户</h1>
     </div>
 </div>
 
@@ -8,20 +8,20 @@
 <div ng-show="ctrl.errormessage != ''"" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
 <form ng-submit="ctrl.submit()" class="form-horizontal" role="form" autocomplete="off">
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">name</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">名称</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.name" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group">
-        <label for="clientId" class="col-sm-2 control-label" translate lib="web">clientId</label>
+        <label for="clientId" class="col-sm-2 control-label" translate lib="web">租户ID</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.clientId" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group">
-        <label for="clientSecret" class="col-sm-2 control-label" translate lib="web">clientSecret</label> <a href
-            ng-click="ctrl.CopySecret('.secrettext')">copysecret</a>
+        <label for="clientSecret" class="col-sm-2 control-label" translate lib="web">租户隐私</label> <a href
+            ng-click="ctrl.CopySecret('.secrettext')">复制隐私</a>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.clientSecret" class="form-control input-md secrettext"
                 ng-disabled="ctrl.loading==true" id="clientSecret" copytext style="-webkit-text-security: disc;" />
@@ -29,12 +29,12 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="grants" class="col-sm-2 control-label" translate lib="web">grants</label>
+        <label for="grants" class="col-sm-2 control-label" translate lib="web">授权</label>
         <table style="width: 50%;" class="table table-striped">
             <tr ng-repeat="id in ctrl.model.grants">
                 <td style="width: 15px;"></td>
                 <td>{{ id }}</td>
-                <td><a href="" ng-click="ctrl.deletefromarray('grants', id)" translate lib="web">delete</a></td>
+                <td><a href="" ng-click="ctrl.deletefromarray('grants', id)" translate lib="web">删除</a></td>
             </tr>
         </table>
     </div>
@@ -44,17 +44,17 @@
                 autocomplete="new-password">
         </div>
         <button type="button" class="btn btn-success mb-2" ng-disabled="ctrl.loading==true"
-            ng-click="ctrl.addtoarray('grants', newgranttype)" translate lib="web">addgrant</button>
+            ng-click="ctrl.addtoarray('grants', newgranttype)" translate lib="web">添加授权</button>
     </div>
 
 
     <div class="form-group">
-        <label for="redirectUris" class="col-sm-2 control-label" translate lib="web">redirecturis</label>
+        <label for="redirectUris" class="col-sm-2 control-label" translate lib="web">重定向</label>
         <table style="width: 50%;" class="table table-striped">
             <tr ng-repeat="id in ctrl.model.redirectUris">
                 <td style="width: 15px;"></td>
                 <td>{{ id }}</td>
-                <td><a href="" ng-click="ctrl.deletefromarray('redirectUris', id)" translate lib="web">delete</a></td>
+                <td><a href="" ng-click="ctrl.deletefromarray('redirectUris', id)" translate lib="web">删除</a></td>
             </tr>
         </table>
     </div>
@@ -64,26 +64,26 @@
                 autocomplete="new-password">
         </div>
         <button type="button" class="btn btn-success mb-2" ng-disabled="ctrl.loading==true"
-            ng-click="ctrl.addtoarray('redirectUris', newredirecturi)" translate lib="web">addredirecturi</button>
+            ng-click="ctrl.addtoarray('redirectUris', newredirecturi)" translate lib="web">添加重定向指向</button>
     </div>
 
 
 
     <div class="form-group">
-        <label for="defaultrole" class="col-sm-2 control-label" translate lib="web">defaultrole</label>
+        <label for="defaultrole" class="col-sm-2 control-label" translate lib="web">默认权限</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.defaultrole" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="rolemappings" class="col-sm-2 control-label" translate lib="web">rolemappings</label>
+        <label for="rolemappings" class="col-sm-2 control-label" translate lib="web">权限匹配</label>
         <table style="width: 50%;" class="table table-striped">
             <thead>
                 <tr>
                     <th></th>
-                    <th><strong translate lib="web">openflow role</strong></th>
-                    <th><strong translate lib="web">target role</strong></th>
+                    <th><strong translate lib="web">工作流权限</strong></th>
+                    <th><strong translate lib="web">目标权限</strong></th>
                     <th></th>
                 </tr>
             </thead>
@@ -91,7 +91,7 @@
                 <td style="width: 15px;"></td>
                 <td>{{ key }}</td>
                 <td>{{ value }}</td>
-                <td><a href="" ng-click="ctrl.deleterolemapping(key)" translate lib="web">delete</a></td>
+                <td><a href="" ng-click="ctrl.deleterolemapping(key)" translate lib="web">删除</a></td>
             </tr>
         </table>
     </div>
@@ -104,19 +104,19 @@
         </div>
         <button type="button" class="btn btn-success mb-2" ng-disabled="ctrl.loading==true"
             ng-click="ctrl.addrolemapping(newrolemappingname, newrolemappingvalue)" translate
-            lib="web">addrolemapping</button>
+            lib="web">添加权限匹配</button>
     </div>
 
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" ng-disabled="ctrl.loading==true" class="btn btn-success" translate
-                lib="web">Save</button>
+                lib="web">保存</button>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="defaultrole" class="col-sm-2 control-label" translate lib="web">openflow signout</label>
+        <label for="defaultrole" class="col-sm-2 control-label" translate lib="web">控制台登出</label>
         <div class="col-sm-4">
             <input type="checkbox" ng-model="ctrl.model.openflowsignout" class="input-md"
                 ng-disabled="ctrl.loading==true" />
@@ -124,34 +124,34 @@
     </div>
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">Signin URL</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">登入地址</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.signin_url" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="defaultrole" class="col-sm-2 control-label" translate lib="web">token_endpoint_auth_method</label>
+        <label for="defaultrole" class="col-sm-2 control-label" translate lib="web">密钥终端方法</label>
         <div class="col-sm-4">
             <select ng-model="ctrl.model.token_endpoint_auth_method" class="form-control input-md"
                 ng-disabled="ctrl.loading==true">
-                <option>none</option>
-                <option>client_secret_post</option>
-                <option>client_secret_basic</option>
-                <option>private_key_jwt</option>
-                <option>tls_client_auth</option>
+                <option>无</option>
+                <option>租户发布密钥</option>
+                <option>租户基本密钥</option>
+                <option>租户隐私密钥</option>
+                <option>租户超级密钥</option>
             </select>
         </div>
     </div>
 
 
     <div class="form-group">
-        <label for="response_types" class="col-sm-2 control-label" translate lib="web">response_types</label>
+        <label for="response_types" class="col-sm-2 control-label" translate lib="web">回复模式</label>
         <table style="width: 50%;" class="table table-striped">
             <tr ng-repeat="id in ctrl.model.response_types">
                 <td style="width: 15px;"></td>
                 <td>{{ id }}</td>
-                <td><a href="" ng-click="ctrl.deletefromarray('response_types', id)" translate lib="web">delete</a></td>
+                <td><a href="" ng-click="ctrl.deletefromarray('response_types', id)" translate lib="web">删除</a></td>
             </tr>
         </table>
     </div>
@@ -161,19 +161,19 @@
                 autocomplete="new-password">
         </div>
         <button type="button" class="btn btn-success mb-2" ng-disabled="ctrl.loading==true"
-            ng-click="ctrl.addtoarray('response_types', newresponsetype)" translate lib="web">addresponsetype</button>
+            ng-click="ctrl.addtoarray('response_types', newresponsetype)" translate lib="web">添加回传模式</button>
     </div>
 
 
     <div class="form-group">
         <label for="post_logout_redirect_uris" class="col-sm-2 control-label" translate
-            lib="web">post_logout_redirect_uris</label>
+            lib="web">访问退出重定向地址</label>
         <table style="width: 50%;" class="table table-striped">
             <tr ng-repeat="id in ctrl.model.post_logout_redirect_uris">
                 <td style="width: 15px;"></td>
                 <td>{{ id }}</td>
                 <td><a href="" ng-click="ctrl.deletefromarray('post_logout_redirect_uris', id)" translate
-                        lib="web">delete</a></td>
+                        lib="web">删除</a></td>
             </tr>
         </table>
     </div>
@@ -184,7 +184,7 @@
         </div>
         <button type="button" class="btn btn-success mb-2" ng-disabled="ctrl.loading==true"
             ng-click="ctrl.addtoarray('post_logout_redirect_uris', newpostredirecturi)" translate
-            lib="web">addpostredirecturi</button>
+            lib="web">添加访问重定向地址</button>
     </div>
 
 </form>

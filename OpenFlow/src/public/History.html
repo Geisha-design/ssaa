@@ -1,5 +1,5 @@
 <div class="starter-template">
-  <h1 translate lib="web">entities</h1>
+  <h1 translate lib="web">实体对象</h1>
 </div>
 <div class="row">
   <div ng-show="ctrl.errormessage != ''"" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
@@ -7,9 +7,9 @@
     <thead class="thead-dark">
       <tr>
         <th ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">name</strong></th>
-        <th ng-click="ctrl.ToggleOrder('_createdby')"><strong translate lib="web">createdby</strong></th>
-        <th ng-click="ctrl.ToggleOrder('_modified')"><strong translate lib="web">updated</strong></th>
-        <th ng-click="ctrl.ToggleOrder('_version')"><strong translate lib="web">version</strong></th>
+        <th ng-click="ctrl.ToggleOrder('_createdby')"><strong translate lib="web">创建者</strong></th>
+        <th ng-click="ctrl.ToggleOrder('_modified')"><strong translate lib="web">更新</strong></th>
+        <th ng-click="ctrl.ToggleOrder('_version')"><strong translate lib="web">版本</strong></th>
         <th></th>
       </tr>
     </thead>
@@ -63,7 +63,7 @@
           <hr />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
         </div>
       </div>
     </div>

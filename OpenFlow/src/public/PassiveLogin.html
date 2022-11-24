@@ -8,7 +8,7 @@
   <meta name="description"
     content="Passive Login page for OpenFlow, used in robots or doing federated logins, learn more at https://github.com/open-rpa/openflow">
   <link rel="stylesheet" href="bundle.css">
-  <title>Login</title>
+  <title>登录</title>
   <script src="bundle.js"></script>
   <script src="angular-localization.min.js"></script>
 </head>
@@ -402,15 +402,15 @@
               <div class="form-label-group">
                 <input type="text" name="email" id="email" ng-model="ctrl.email" class="form-control" placeholder="email"
                   required autofocus autocomplete='off'>
-                <label for="email" translate lib="web">email</label>
+                <label for="email" translate lib="web">邮箱</label>
               </div>
               If a user with this email exists, we will send an email with a code to this email.<br>
 
               <div class="form-label-group">
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"  ng-click="ctrl.ForgotPasswordSendEmail()"
-                translate lib="web">send code</button>
+                translate lib="web">发送CODE</button>
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="button"  ng-click="ctrl.SkipForgotPassword()"
-                translate lib="web">back</button>
+                translate lib="web">返回</button>
               </div>
 
             </div>

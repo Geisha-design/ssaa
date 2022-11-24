@@ -1,12 +1,16 @@
 FROM node:lts-alpine as builder
 
+RUN npm config set proxy null
+RUN npm config set https-proxy null
+RUN npm config set registry https://registry.npm.taobao.org/
+
 RUN npm i gulp typescript browserify tsify -g
 RUN mkdir /app
 RUN mkdir /app/OpenFlowNodeRED
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
-COPY OpenFlowNodeRED/package*.json /app/OpenFlowNodeRED
+COPY OpenFlowNodeRED/package*.json /app/OpenFlowNodeRED/
 WORKDIR /app/OpenFlowNodeRED
 RUN npm install
 COPY . /app/
@@ -16,10 +20,11 @@ RUN gulp copyfiles1
 
 
 FROM node:lts-alpine
+
 RUN apk add --no-cache bash git
 
 WORKDIR /data
-COPY --from=builder /app/OpenFlowNodeRED/dist/ .
+COPY --from=builder /app/OpenFlowNodeRED/dist/ ./
 COPY --from=builder /app/OpenFlowNodeRED/node_modules/ ./node_modules/
 
 EXPOSE 3000

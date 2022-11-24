@@ -1,24 +1,24 @@
 <div class="row">
-  <h1 translate lib="web">resources</h1>
+  <h1 translate lib="web">资源</h1>
 </div>
 <div class="col-sm-12 text-right">
   <em class="fas fa-cog fa-spin" ng-show="ctrl.loading==true"></em>
   <a class="btn btn-info" ng-click="ctrl.EnsureCommon()" translate lib="web"
-    ng-show="menuctrl.hasrole('admins') && ctrl.loading==false">ensurecommon</a>
+    ng-show="menuctrl.hasrole('admins') && ctrl.loading==false">形式确认</a>
   <a class="btn btn-info disabled" translate lib="web"
-    ng-show="menuctrl.hasrole('admins') && ctrl.loading==true">ensurecommon</a>
-  <a href="#/Resource" class="btn btn-info" translate lib="web" ng-show="ctrl.loading==false">addResource</a>
-  <a href class="btn btn-info disabled" translate lib="web" ng-show="ctrl.loading==true">addResource</a>
+    ng-show="menuctrl.hasrole('admins') && ctrl.loading==true">形式确认</a>
+  <a href="#/Resource" class="btn btn-info" translate lib="web" ng-show="ctrl.loading==false">添加资源</a>
+  <a href class="btn btn-info disabled" translate lib="web" ng-show="ctrl.loading==true">添加资源</a>
 </div>
 <div ng-show="ctrl.errormessage != ''"" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
 <table id="table1" class="table table-striped" when-scrolled="ctrl.more()" style="width: 100%;">
   <thead class="thead-dark">
     <tr>
-      <th ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">name</strong></th>
-      <th><strong translate lib="web"># products</strong></th>
-      <th><strong translate lib="web"># assigned</strong></th>
-      <th class="w-150" ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">created</strong></th>
-      <th scope="col" ng-click="ctrl.ToggleOrder('_modified')"><strong translate lib="web">updated</strong></th>
+      <th ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">名称</strong></th>
+      <th><strong translate lib="web"># 产品</strong></th>
+      <th><strong translate lib="web"># 分配</strong></th>
+      <th class="w-150" ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">创建</strong></th>
+      <th scope="col" ng-click="ctrl.ToggleOrder('_modified')"><strong translate lib="web">更新</strong></th>
       <th class="w-150"></th>
     </tr>
   </thead>

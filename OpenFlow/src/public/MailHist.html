@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-20">
-        <h1 class="pagetitle" translate lib="web">emailhistdetails</h1>
+        <h1 class="pagetitle" translate lib="web">邮件历史细节</h1>
     </div>
 </div>
 <style type="text/css">
@@ -23,17 +23,17 @@
 <form ng-submit="ctrl.submit()" class="form-horizontal" role="form" autocomplete="off">
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">name</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">名称</label>
         <div class="col-sm-6">
             <input ng-model="ctrl.model.name" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">read</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">读取</label>
         <div class="col-sm-6">
             <div class="custom-switch">
                 <input type="checkbox" id="rparole" ng-model="ctrl.model.read">
-                <label for="read">read</label>
+                <label for="read">读取</label>
             </div>
         </div>
     </div>

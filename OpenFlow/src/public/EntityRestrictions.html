@@ -1,22 +1,22 @@
 <div class="row">
-  <h1 translate lib="web">entity restrictions</h1>
+  <h1 translate lib="web">实体性质</h1>
 </div>
 <div class="col-sm-12 text-right">
   <em class="fas fa-cog fa-spin" ng-show="ctrl.loading==true"></em>
   <a class="btn btn-info" ng-click="ctrl.EnsureCommon()" translate lib="web"
-    ng-show="menuctrl.hasrole('admins')">ensurecommon</a>
-  <a href="#/EntityRestriction" class="btn btn-info" translate lib="web">addEntityRestriction</a>
+    ng-show="menuctrl.hasrole('admins')">实体共性</a>
+  <a href="#/EntityRestriction" class="btn btn-info" translate lib="web">添加实体限制</a>
 </div>
 <div ng-show="ctrl.errormessage != ''" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
 <table id="table1" class="table table-striped" when-scrolled="ctrl.more()" style="width: 100%;" aria-label="List of entity restrictions">
   <thead class="thead-dark">
     <tr>
-      <th ng-click="ctrl.ToggleOrder('name')" scope="col"><strong translate lib="web">name</strong></th>
-      <th ng-click="ctrl.ToggleOrder('collection')" scope="col"><strong translate lib="web">collection</strong></th>
-      <th ng-click="ctrl.ToggleOrder('paths')" scope="col"><strong translate lib="web">paths</strong></th>
-      <th class="w-150" ng-click="ctrl.ToggleOrder('_created')" scope="col"><strong translate lib="web">created</strong>
+      <th ng-click="ctrl.ToggleOrder('name')" scope="col"><strong translate lib="web">名称</strong></th>
+      <th ng-click="ctrl.ToggleOrder('collection')" scope="col"><strong translate lib="web">集群</strong></th>
+      <th ng-click="ctrl.ToggleOrder('paths')" scope="col"><strong translate lib="web">路径</strong></th>
+      <th class="w-150" ng-click="ctrl.ToggleOrder('_created')" scope="col"><strong translate lib="web">创建</strong>
       </th>
-      <th ng-click="ctrl.ToggleOrder('_modified')" scope="col"><strong translate lib="web">updated</strong>
+      <th ng-click="ctrl.ToggleOrder('_modified')" scope="col"><strong translate lib="web">更新</strong>
       </th>
       <th class="w-150" scope="col"></th>
     </tr>

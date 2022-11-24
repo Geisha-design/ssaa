@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-20">
-        <h1 class="pagetitle" translate lib="web">role</h1>
+        <h1 class="pagetitle" translate lib="web">角色</h1>
     </div>
 </div>
 <style type="text/css">
@@ -23,31 +23,31 @@
 <form ng-submit="ctrl.submit()" class="form-horizontal" role="form" autocomplete="off">
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">name</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">名称</label>
         <div class="col-sm-6">
             <input ng-model="ctrl.model.name" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">rparole</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">RPA角色</label>
         <div class="col-sm-6">
             <div class="custom-switch">
                 <input type="checkbox" id="rparole" ng-model="ctrl.model.rparole">
-                <label for="rparole">rparole</label>
+                <label for="rparole">RPA权限</label>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">hide members</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">隐藏成员</label>
         <div class="col-sm-6">
             <div class="custom-switch">
                 <input type="checkbox" id="hidemembers" ng-model="ctrl.model.hidemembers">
-                <label for="hidemembers">hide members</label>
+                <label for="hidemembers">隐藏成员</label>
             </div>
         </div>
     </div>
     <div class="form-group ">
-        <label for="add" class="col-sm-2 control-label" translate lib="web">add</label>
+        <label for="add" class="col-sm-2 control-label" translate lib="web">添加</label>
         <div class="col-sm-6 input-group">
             <input type="text" name="user" id="user" ng-model="ctrl.searchtext" ng-keyup="ctrl.setkey($event)"
                 autocomplete="off" class="form-control" ng-model-options="{ debounce: 500 }"
@@ -73,20 +73,20 @@
         </div>
     </div>
     <div class="form-inline" ng-repeat="m in ctrl.model.members">
-        <label class="col-sm-1 control-label" translate lib="web">member</label>
+        <label class="col-sm-1 control-label" translate lib="web">成员</label>
         <div class="col-sm-3">
             {{ m.name }}
         </div>
         <div class="col-sm-2">
             <button ng-click=" ctrl.RemoveMember(m)" type="button" ng-disabled="ctrl.loading==true"
-                class="btn btn-success" translate lib="web">remove</button>
+                class="btn btn-success" translate lib="web">移除</button>
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" ng-disabled="ctrl.loading==true" class="btn btn-success" translate
-                lib="web">save</button>
+                lib="web">保存</button>
         </div>
     </div>
 

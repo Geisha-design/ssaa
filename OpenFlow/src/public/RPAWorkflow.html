@@ -6,7 +6,7 @@
 <form ng-submit="ctrl.submit()" class="form-horizontal" role="form" autocomplete="off" ng-hide="ctrl.showjson==true">
     <section>
         <div class="form-group">
-            <label class="col-sm-3 control-label"><span translate lib="web">Robot</span>
+            <label class="col-sm-3 control-label"><span translate lib="web">机器人</span>
             </label>
             <div class="col-sm-9">
                 <select ng-model="ctrl.user" ng-options="item as item.name for item in ctrl.users">
@@ -25,7 +25,7 @@
         </div>
     </section>
     <div>
-        <label for="state">Timeout</label>
+        <label for="state">超时</label>
         <div class="form-row row-eq-spacing-md">
             <div class="col-md-3">
                 <input ng-model="ctrl.timeout" class="form-control input-md" ng-disabled="ctrl.loading==true" />

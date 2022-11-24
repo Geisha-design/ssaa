@@ -17,26 +17,25 @@
   }
 </style>
 <div id="title" class="row">
-  <h1 translate lib="web">users</h1>
+  <h1 translate lib="web">用户</h1>
 </div>
 
 <div class="col-sm-12 text-right">
   <em class="fas fa-cog fa-spin" ng-show="ctrl.loading==true"></em>
   <input type="checkbox" id="checkbox-1" ng-model="ctrl.skipcustomerfilter" ng-change="ctrl.Search()"
     ng-show="menuctrl.WebSocketClientService.multi_tenant">
-  <label for="checkbox-1" ng-show="menuctrl.WebSocketClientService.multi_tenant"><span translate lib="web">show
-      all</span></label>
-  <a href="#/User" class="btn btn-info" translate lib="web">Adduser</a>
+  <label for="checkbox-1" ng-show="menuctrl.WebSocketClientService.multi_tenant"><span translate lib="web">展示全部</span></label>
+  <a href="#/User" class="btn btn-info" translate lib="web">添加用户</a>
 </div>
 <div ng-show="ctrl.errormessage != ''"" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
 <table id="table1" class="table table-striped" when-scrolled="ctrl.more()" style="width: 100%;">
   <thead class="thead-dark">
     <tr>
-      <th ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">name</strong></th>
-      <th ng-click="ctrl.ToggleOrder('username')"><strong translate lib="web">username</strong></th>
-      <th ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">created</strong></th>
-      <th ng-click="ctrl.ToggleOrder('lastseen')"><strong translate lib="web">lastseen</strong></th>
-      <th ng-click="ctrl.ToggleOrder('dbusage')" class="dbusage"><strong translate lib="web">dbusage</strong></th>
+      <th ng-click="ctrl.ToggleOrder('name')"><strong translate lib="web">名称</strong></th>
+      <th ng-click="ctrl.ToggleOrder('username')"><strong translate lib="web">用户名</strong></th>
+      <th ng-click="ctrl.ToggleOrder('_created')"><strong translate lib="web">创建</strong></th>
+      <th ng-click="ctrl.ToggleOrder('lastseen')"><strong translate lib="web">最后可见</strong></th>
+      <th ng-click="ctrl.ToggleOrder('dbusage')" class="dbusage"><strong translate lib="web">数据库使用情况</strong></th>
       <th ng-show="ctrl.WebSocketClientService.validate_user_form != ''" ng-click="ctrl.ToggleOrder('validated')" class="validated">
         <em class="fas fa-check"></em>
       </th>
@@ -97,7 +96,7 @@
       <a href="#" class="close" role="button" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </a>
-      <h5 class="modal-title">Services for {{ctrl.user.name}}</h5>
+      <h5 class="modal-title">提供服务支持 {{ctrl.user.name}}</h5>
       <p>
       <div ng-repeat="Resource in ctrl.Resources | orderBy: 'order'">
         <div class="row" ng-repeat="Product in Resource.products | orderBy: 'order'"
@@ -156,9 +155,9 @@
       <a href="#" class="close" role="button" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </a>
-      <h5 class="modal-title" ng-show="!ctrl.proration">Next Invoice for
+      <h5 class="modal-title" ng-show="!ctrl.proration">下一个票据
         {{ctrl.WebSocketClientService.customer.name}}</h5>
-      <h5 class="modal-title" ng-show="ctrl.proration">Accept next Invoice for
+      <h5 class="modal-title" ng-show="ctrl.proration">接受下一个票据
         {{ctrl.WebSocketClientService.customer.name}}</h5>
       <h6>{{ ctrl.period_start }} to {{ ctrl.period_end }}</h6>
       <p>
@@ -170,18 +169,18 @@
       <hr
         ng-show="(ctrl.nextinvoice.tax && ctrl.nextinvoice.tax > 0) || (ctrl.nextinvoice.total_discount_amounts && ctrl.nextinvoice.total_discount_amounts.length > 0)">
       <div class="row" ng-show="ctrl.nextinvoice.tax && ctrl.nextinvoice.tax > 0">
-        <div class="col">Tax</div>
+        <div class="col">费率</div>
         <div class="col"></div>
         <div class="col">{{ ctrl.nextinvoice.tax / 100 }} {{ ctrl.nextinvoice.currency }}</div>
       </div>
       <div class="row" ng-repeat="item in ctrl.nextinvoice.total_discount_amounts">
-        <div class="col">Discount</div>
+        <div class="col">折扣</div>
         <div class="col"></div>
         <div class="col">{{ item.amount / 100 }} {{ ctrl.nextinvoice.currency }}</div>
       </div>
       <hr>
       <div class="row">
-        <div class="col">Total</div>
+        <div class="col">合计</div>
         <div class="col"></div>
         <div class="col">{{ ctrl.nextinvoice.amount_due / 100 }} {{ ctrl.nextinvoice.currency }}</div>
       </div>
@@ -189,8 +188,8 @@
       <div class="text-right mt-20">
 
         <a href ng-show="ctrl.proration" class="btn mr-5 btn-success" role="button"
-          ng-click="ctrl.AddPlan2()">Accept</a>
-        <a href class="btn mr-5" role="button" ng-click="ctrl.ToggleNextInvoiceModal()">Close</a>
+          ng-click="ctrl.AddPlan2()">接受</a>
+        <a href class="btn mr-5" role="button" ng-click="ctrl.ToggleNextInvoiceModal()">关闭</a>
       </div>
     </div>
   </div>

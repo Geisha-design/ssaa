@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-20">
-        <h1 class="pagetitle" translate lib="web">resource</h1>
+        <h1 class="pagetitle" translate lib="web">资源</h1>
     </div>
 </div>
 
@@ -9,7 +9,7 @@
 <form ng-submit="ctrl.submit()" class="form-horizontal" role="form" autocomplete="off">
 
     <div class="form-group">
-        <label for="provider" class="col-sm-2 control-label" translate lib="web">target</label>
+        <label for="provider" class="col-sm-2 control-label" translate lib="web">目标</label>
         <div class="col-sm-4">
             <select class="form-control" ng-model="ctrl.model.target">
                 <option value="customer">Customer</option>
@@ -18,31 +18,31 @@
         </div>
     </div>
     <div class="form-group" ng-show="ctrl.model.target=='customer'">
-        <label for="provider" class="col-sm-2 control-label" translate lib="web">customerassign</label>
+        <label for="provider" class="col-sm-2 control-label" translate lib="web">消费者分配</label>
         <div class="col-sm-4">
             <select class="form-control" ng-model="ctrl.model.customerassign">
-                <option value="singlevariant">Single product</option>
-                <option value="multiplevariants">Multiple products</option>
+                <option value="singlevariant">单一产品</option>
+                <option value="multiplevariants">复合产品</option>
             </select>
         </div>
     </div>
     <div class="form-group" ng-show="ctrl.model.target=='user'">
-        <label for="provider" class="col-sm-2 control-label" translate lib="web">userassign</label>
+        <label for="provider" class="col-sm-2 control-label" translate lib="web">用户分配</label>
         <div class="col-sm-4">
             <select class="form-control" ng-model="ctrl.model.userassign">
-                <option value="singlevariant">Single product</option>
-                <option value="multiplevariants">Multiple products</option>
+                <option value="singlevariant">单一产品</option>
+                <option value="multiplevariants">复合产品</option>
             </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label" translate lib="web">name</label>
+        <label for="name" class="col-sm-2 control-label" translate lib="web">名称</label>
         <div class="col-sm-4">
             <input ng-model="ctrl.model.name" class="form-control input-md" ng-disabled="ctrl.loading==true" />
         </div>
     </div>
     <div class="form-group">
-        <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">allowdirectassign</label>
+        <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">允许直接分配</label>
         <div class="col-sm-4">
             <input type="checkbox" ng-model="ctrl.model.allowdirectassign" class="input-md"
                 ng-disabled="ctrl.loading==true" />
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">defaultmetadata</label>
+        <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">默认元数据</label>
         <div class="col-sm-4">
             <textarea json-text class='form-control' rows='1' data-min-rows='1'
                 ng-model="ctrl.model.defaultmetadata"></textarea>
@@ -62,7 +62,7 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" ng-disabled="ctrl.loading==true" class="btn btn-success" translate
-                lib="web">Save</button>
+                lib="web">保存</button>
         </div>
     </div>
 
@@ -70,46 +70,46 @@
         <h4>{{product.name}}</h4>
 
         <div class="form-group" ng-show="ctrl.model.target=='customer'">
-            <label for="provider" class="col-sm-2 control-label" translate lib="web">customerassign</label>
+            <label for="provider" class="col-sm-2 control-label" translate lib="web">消费者分配</label>
             <div class="col-sm-4">
                 <select class="form-control" ng-model="product.customerassign">
-                    <option value="single">Single</option>
-                    <option value="multiple">Multiple</option>
-                    <option value="metered">Metered</option>
+                    <option value="single">单点</option>
+                    <option value="multiple">复合</option>
+                    <option value="metered">计量</option>
                 </select>
             </div>
         </div>
         <div class="form-group" ng-show="ctrl.model.target=='user'">
-            <label for="provider" class="col-sm-2 control-label" translate lib="web">userassign</label>
+            <label for="provider" class="col-sm-2 control-label" translate lib="web">用户分配</label>
             <div class="col-sm-4">
                 <select class="form-control" ng-model="product.userassign">
-                    <option value="single">Single</option>
-                    <option value="multiple">Multiple</option>
-                    <option value="metered">Metered</option>
+                    <option value="single">单点</option>
+                    <option value="multiple">复合</option>
+                    <option value="metered">计量</option>
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="stripeproduct" class="col-sm-2 control-label" translate lib="web">stripeproduct</label>
+            <label for="stripeproduct" class="col-sm-2 control-label" translate lib="web">stripe产品</label>
             <div class="col-sm-4">
                 <input ng-model="product.stripeproduct" class="form-control input-md"
                     ng-disabled="ctrl.loading==true" />
             </div>
         </div>
         <div class="form-group">
-            <label for="stripeprice" class="col-sm-2 control-label" translate lib="web">stripeprice</label>
+            <label for="stripeprice" class="col-sm-2 control-label" translate lib="web">stripe价格</label>
             <div class="col-sm-4">
                 <input ng-model="product.stripeprice" class="form-control input-md" ng-disabled="ctrl.loading==true" />
             </div>
         </div>
         <div class="form-group">
-            <label for="name" class="col-sm-2 control-label" translate lib="web">name</label>
+            <label for="name" class="col-sm-2 control-label" translate lib="web">名称</label>
             <div class="col-sm-4">
                 <input ng-model="product.name" class="form-control input-md" ng-disabled="ctrl.loading==true" />
             </div>
         </div>
         <div class="form-group">
-            <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">allowdirectassign</label>
+            <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">允许直接分配</label>
             <div class="col-sm-4">
                 <input type="checkbox" ng-model="product.allowdirectassign" class="input-md"
                     ng-disabled="ctrl.loading==true" />
@@ -117,22 +117,21 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="added_resourceid" class="col-sm-2 control-label" translate lib="web">added resourceid</label>
+            <label for="added_resourceid" class="col-sm-2 control-label" translate lib="web">添加资源账号</label>
             <div class="col-sm-4">
                 <input ng-model="product.added_resourceid" class="form-control input-md"
                     ng-disabled="ctrl.loading==true" />
             </div>
         </div>
         <div class="form-group">
-            <label for="added_stripeprice" class="col-sm-2 control-label" translate lib="web">added stripeprice</label>
+            <label for="added_stripeprice" class="col-sm-2 control-label" translate lib="web">添加stripe价格</label>
             <div class="col-sm-4">
                 <input ng-model="product.added_stripeprice" class="form-control input-md"
                     ng-disabled="ctrl.loading==true" />
             </div>
         </div>
         <div class="form-group">
-            <label for="added_quantity_multiplier" class="col-sm-2 control-label" translate lib="web">added quantity
-                multiplier</label>
+            <label for="added_quantity_multiplier" class="col-sm-2 control-label" translate lib="web">添加多种复合形</label>
             <div class="col-sm-4">
                 <input ng-model="product.added_quantity_multiplier" type="number" class="form-control input-md"
                     ng-disabled="ctrl.loading==true" />
@@ -140,7 +139,7 @@
         </div>
 
         <div class="form-group">
-            <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">metadata</label>
+            <label for="allowdirectassign" class="col-sm-2 control-label" translate lib="web">元数据</label>
             <div class="col-sm-4">
                 <textarea json-text class='form-control' rows='1' data-min-rows='1'
                     ng-model="product.metadata"></textarea>

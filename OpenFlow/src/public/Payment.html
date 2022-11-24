@@ -7,14 +7,14 @@
     <div id="customer-info" ng-hide="ctrl.loading==true">
         <div class="row">
             <div class="col">
-                <label class="control-label" translate lib="web">Legal Name</label>
+                <label class="control-label" translate lib="web">历史名称</label>
                 <div class="col-sm-8">
                     <input type="text" class='form-control' ng-model="ctrl.model.name"
                         ng-disabled="ctrl.hascustomer"></input>
                 </div>
             </div>
             <div class="col">
-                <label class="control-label" translate lib="web">Billing email</label>
+                <label class="control-label" translate lib="web">支付邮箱</label>
                 <div class="col-sm-8">
                     <input type="text" class='form-control' ng-model="ctrl.model.email"
                         ng-disabled="ctrl.hascustomer"></input>
@@ -23,17 +23,17 @@
         </div>
         <div class="row">
             <div class="col">
-                <label class="control-label" translate lib="web" ng-show="ctrl.model.address != ''">Address</label>
+                <label class="control-label" translate lib="web" ng-show="ctrl.model.address != ''">地址</label>
                 <div class="col-sm-8">
                     <input type="text" class='form-control' ng-model="ctrl.model.address" ng-disabled="true"
                         ng-show="ctrl.model.address != ''"></input>
                 </div>
             </div>
             <div class="col">
-                <label class="control-label" translate lib="web">Country</label>
+                <label class="control-label" translate lib="web">国家</label>
                 <div class="col-sm-8">
                     <select class='form-control' ng-model="ctrl.model.country" ng-disabled="ctrl.hascustomer">
-                        <option value="  " selected>(please select a country)</option>
+                        <option value="  " selected>(请选择一个国家)</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AL">Albania</option>
                         <option value="DZ">Algeria</option>
@@ -428,7 +428,7 @@
     <div ng-show="ctrl.errormessage != ''"" class=" alert alert-danger" role="alert">{{ctrl.errormessage}}</div>
     <pre ng-show="ctrl.messages!=''" class=" alert alert-primary" role="alert">{{ ctrl.messages }}</pre>
     <div ng-show="menuctrl.hasrole('admins')">
-        <h3 ng-show="ctrl.openflowplans.length > 0">OpenFlow User w/NodeRed with a SLA</h3>
+        <h3 ng-show="ctrl.openflowplans.length > 0"> 用户/SLA节点对象</h3>
         <div class="row" ng-hide="ctrl.loading==true">
             <div ng-repeat="model in ctrl.openflowplans" class="w-400 mw-full">
                 <div class="card">
@@ -472,7 +472,7 @@
             </div>
         </div>
     </div>
-    <h3 ng-show="ctrl.supportplans.length > 0">OpenFlow Licenses</h3>
+    <h3 ng-show="ctrl.supportplans.length > 0">控制台证书</h3>
     <div class="row" ng-hide="ctrl.loading==true">
         <div ng-repeat="model in ctrl.supportplans" class="w-400 mw-full">
 
@@ -488,8 +488,7 @@
                 </p>
                 <div class="text-right">
                     <!-- ng-show="ctrl.allowsupportsignup" -->
-                    <a href ng-click="ctrl.CheckOut(model.id, model.subplan.id)" class="btn">Buy
-                        now</a>
+                    <a href ng-click="ctrl.CheckOut(model.id, model.subplan.id)" class="btn">现在购买</a>
 
                 </div>
                 <div class="px-card py-10 bg-light-lm bg-very-dark-dm rounded-bottom">
